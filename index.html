@@ -3,9 +3,43 @@
 <head>
     <title>Videogram</title>
     <link rel="stylesheet" href="style.css">
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-storage.js"></script>
+    <script>
+        // Firebase konfigurační objekt
+        const firebaseConfig = {
+            apiKey: "AIzaSyDQvy6b8Fr3efrl3SG2Kzc1dynrTH8L2ro",
+            authDomain: "videogram-3207f.firebaseapp.com",
+            projectId: "videogram-3207f",
+            storageBucket: "videogram-3207f.appspot.com",
+            messagingSenderId: "35783007316",
+            appId: "1:35783007316:web:3b244e3be120fd150ee1c1",
+            measurementId: "G-Q61N7ZK9RN"
+        };
+        // Inicializace Firebase
+        firebase.initializeApp(firebaseConfig);
+    </script>
 </head>
 <body>
     <h1>Vítejte na Videogramu!</h1>
-    <p>Toto je vaše první stránka hostovaná na GitHub Pages.</p>
+
+    <!-- Přihlašovací formulář -->
+    <div id="login-form">
+        <h2>Přihlášení</h2>
+        <input type="email" id="email" placeholder="Email">
+        <input type="password" id="password" placeholder="Heslo">
+        <button id="login-button">Přihlásit se</button>
+    </div>
+
+    <!-- Formulář pro nahrávání souborů -->
+    <div id="upload-form">
+        <h2>Nahrát soubor</h2>
+        <input type="file" id="file-input">
+        <button id="upload-button">Nahrát</button>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
