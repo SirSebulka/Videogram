@@ -1,7 +1,11 @@
+console.log("Script loaded");
+
 // Přihlašovací funkce
 document.getElementById('login-button').addEventListener('click', function() {
+    console.log("Login button clicked");
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
+    console.log("Email: " + email + " Password: " + password);
 
     firebase.auth().signInWithEmailAndPassword(email, password)
         .then((userCredential) => {
@@ -18,6 +22,7 @@ document.getElementById('login-button').addEventListener('click', function() {
 
 // Funkce pro nahrávání souborů
 document.getElementById('upload-button').addEventListener('click', function() {
+    console.log("Upload button clicked");
     const file = document.getElementById('file-input').files[0];
     const storageRef = firebase.storage().ref('videos/' + file.name);
     storageRef.put(file).then((snapshot) => {
@@ -45,6 +50,7 @@ function saveVideoInfo(fileName) {
 
 // Načítání a zobrazování videí
 function loadVideos() {
+    console.log("Load videos called");
     const videoList = document.getElementById('video-list');
     videoList.innerHTML = '';
 
@@ -62,6 +68,8 @@ function loadVideos() {
             `;
             videoList.appendChild(videoElement);
         });
+    }).catch((error) => {
+        console.error('Chyba při načítání videí:', error.message);
     });
 }
 
@@ -81,4 +89,12 @@ function likeVideo(videoId) {
 // Funkce pro odběr uživatelů
 function subscribeUser(userId) {
     const user = firebase.auth().currentUser;
-    db.collection("subscriptions").
+    db.collection("subscriptions").add({
+        subscriberId: user.uid,
+        subscribedToId: userId
+    }).then((docRef) => {
+        console.log("Uživatel odebírán s ID: ", docRef.id);
+    }).catch((error) => {
+        console.error("Chyba při odběru uživatele: ", error);
+    });
+}
