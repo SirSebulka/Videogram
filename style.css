@@ -1,11 +1,42 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Videogram</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <h1>Vítejte na Videogramu!</h1>
-    <p>Toto je vaše první stránka hostovaná na GitHub Pages.</p>
-</body>
-</html>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #121212;  /* Tmavě šedé pozadí */
+    color: #ffffff;  /* Bílý text */
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    color: #ffffff;  /* Bílý text pro nadpis */
+    text-align: center;
+    padding: 20px 0;
+}
+
+p {
+    color: #bbbbbb;  /* Světle šedý text pro odstavec */
+    font-size: 16px;
+    text-align: center;
+    margin: 10px 0;
+}
+
+nav {
+    background-color: #333333;  /* Tmavě šedé pozadí pro navigaci */
+    padding: 10px 0;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #ffffff;  /* Bílý text pro odkazy */
+}
