@@ -81,12 +81,4 @@ function likeVideo(videoId) {
 // Funkce pro odběr uživatelů
 function subscribeUser(userId) {
     const user = firebase.auth().currentUser;
-    db.collection("subscriptions").add({
-        subscriberId: user.uid,
-        subscribedToId: userId
-    }).then((docRef) => {
-        console.log("Uživatel odebírán s ID: ", docRef.id);
-    }).catch((error) => {
-        console.error("Chyba při odběru uživatele: ", error);
-    });
-}
+    db.collection("subscriptions").
